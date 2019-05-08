@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "518977504855",
+    "firebase_url": "https://food-impact-app.firebaseio.com",
+    "project_id": "food-impact-app",
+    "storage_bucket": "food-impact-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518977504855:android:d5294da9a45698d8",
+        "android_client_info": {
+          "package_name": "com.example.food_impact_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518977504855-a7rp824blf0e2it2jbmds2a45gs2s56l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYhYsUBt27m2oa6pXXZKTWiWTTXg9aUxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518977504855-a7rp824blf0e2it2jbmds2a45gs2s56l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
