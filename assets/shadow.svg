@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="106px" height="23px" viewBox="0 0 106 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>D412347E-C0F0-4912-945A-D730538D5E7D</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <ellipse id="path-1" cx="520" cy="1715.5" rx="50" ry="8.5"></ellipse>
+        <filter x="-5.5%" y="-20.6%" width="111.0%" height="164.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Green_diet_v3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="1" opacity="0.225613839">
+        <g id="Desktop_1400" transform="translate(-467.000000, -1706.000000)" fill="black" fill-rule="nonzero">
+            <g id="Oval-8">
+                <use filter="url(#filter-2)" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

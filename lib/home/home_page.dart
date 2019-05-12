@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    _setFoods();
+    _initFoods();
     super.initState();
   }
 
@@ -34,14 +34,17 @@ class _HomePageState extends State<HomePage> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[FoodSelectorForm()],
+        children: <Widget>[
+          FoodSelectorForm(),
+          // Next part
+        ],
       ),
     );
   }
 
-  _setFoods() {
+  _initFoods() {
     FoodDataService.getFoods().then((value) {
-      ScopedModel.of<FoodModel>(context).addFoods(value);
+      ScopedModel.of<FoodModel>(context).foods = value;
     });
   }
 }
