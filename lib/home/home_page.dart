@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_impact_app/food_data_service.dart';
 import 'package:food_impact_app/food_model.dart';
 import 'package:food_impact_app/home/food_selector_form.dart';
+import 'package:food_impact_app/results/resuls_page.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,6 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _submitted = false;
+
   @override
   void initState() {
     _initFoods();
@@ -35,8 +38,8 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          FoodSelectorForm(),
-          // Next part
+          FoodSelectorForm(_onSubmit),
+          _submitted ? ResultsPage() : Container()
         ],
       ),
     );
@@ -45,6 +48,12 @@ class _HomePageState extends State<HomePage> {
   _initFoods() {
     FoodDataService.getFoods().then((value) {
       ScopedModel.of<FoodModel>(context).foods = value;
+    });
+  }
+
+  _onSubmit() {
+    setState(() {
+      _submitted = true;
     });
   }
 }

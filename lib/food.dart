@@ -12,5 +12,6 @@ class Food {
 
   Food.fromJson(this.key, Map data) {
     name = data['food'] != null ? data['food'] : '';
+    servingSize = data['serving_size'] != null ? data['serving_size'] : '';
   }
 }

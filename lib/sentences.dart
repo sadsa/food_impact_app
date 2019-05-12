@@ -1,14 +1,13 @@
 final sentences = {
   "Summmary": {
-    "1": "Over an entire year your consumption of apples is contributing 2kg to your annual greenhouse gas emissions."
+    "sentence":
+        "Over an entire year your consumption of apples is contributing 2kg to your annual greenhouse gas emissions."
   },
   "GHG": {
-    "1": ""
+    "sentence": {
+      "1": "That's the equivalent of driving a regular petrol car 7 miles (11km).", 
+      "2": "the same as heating the average UK home for 0.4 days."}
   },
-  "Land": {
-    "1": ""
-  },
-  "Water": {
-    "1": ""
-  }
+  "Land": {"sentence": ""},
+  "Water": {"sentence": ""}
 };
