@@ -1,16 +1,18 @@
+import 'package:food_impact_app/frequency.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'food.dart';
 
 class FoodModel extends Model {
   List<Food> _foods = new List<Food>();
-  List<String> frequencies = [
-    "1-2 times per week",
-    "3-5 times per week",
-    "Once a day",
-    "Never",
+  List<Frequency> frequencies = [
+    new Frequency("1-2 times a week", 1.5),
+    new Frequency("3-5 times a week", 4),
+    new Frequency("Once a day", 7),
+    new Frequency("Twice a day or more", 14),
+    new Frequency("Never", 0),
   ];
   Food _selectedFood;
-  String _selectedFrequency;
+  Frequency _selectedFrequency;
 
   get foods => _foods;
 
@@ -26,9 +28,9 @@ class FoodModel extends Model {
     notifyListeners();
   }
 
-  String get selectedFrequency => _selectedFrequency;
+  Frequency get selectedFrequency => _selectedFrequency;
 
-  set selectedFrequency(String value) {
+  set selectedFrequency(Frequency value) {
     _selectedFrequency = value;
     notifyListeners();
   }

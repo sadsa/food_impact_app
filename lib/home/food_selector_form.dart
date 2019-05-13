@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_impact_app/food.dart';
 import 'package:food_impact_app/food_model.dart';
+import 'package:food_impact_app/frequency.dart';
 import 'package:food_impact_app/util/dropdown_factory.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -80,7 +81,7 @@ class FoodSelectorFormState extends State<FoodSelectorForm> {
           _submitCallback();
         }
       },
-      child: Text('Submit'),
+      child: Text('Find out'),
     );
   }
 
@@ -88,7 +89,7 @@ class FoodSelectorFormState extends State<FoodSelectorForm> {
     ScopedModel.of<FoodModel>(context).selectedFood = value;
   }
 
-  void _setSelectedFrequency(String value) {
+  void _setSelectedFrequency(Frequency value) {
     ScopedModel.of<FoodModel>(context).selectedFrequency = value;
   }
 }
