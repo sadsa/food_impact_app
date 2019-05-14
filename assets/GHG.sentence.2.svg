@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="464px" height="50px" viewBox="0 0 464 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>29DF32FD-6F57-498D-9855-101F3B0474A9</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Green_diet_v3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop_1400" transform="translate(-280.000000, -1984.000000)" fill-rule="nonzero">
+            <g id="house" transform="translate(282.000000, 1985.000000)">
+                <path d="M0,47 L460,47" id="Path-4" stroke="#FBF5F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <g transform="translate(21.000000, 0.000000)">
+                    <polygon id="Rectangle-path" stroke="#404040" stroke-width="2" stroke-linejoin="round" points="40 0 44 0 44 4 40 4"></polygon>
+                    <path d="M2,19 L2,41 L23.0000264,41 L23.0000264,24.5000816 L34.9999736,24.5000816 L34.9999736,41 L56,41 L56,19 L29,19 L2,19 Z M18.4999868,27.250068 L18.4999868,28.6251157 L18.4999868,34.1250884 L18.4999868,35.0001361 C18.4999868,35.2762784 18.2761292,35.5001361 17.9999868,35.5001361 L16.999934,35.5001361 L9.49990764,35.5001361 L8.49997361,35.5001361 C8.22383124,35.5001361 7.99997361,35.2762784 7.99997361,35.0001361 L7.99997361,34.1250884 L7.99997361,28.6251157 L7.99997361,27.250068 L7.99997361,24.5000816 L7.99997361,23.625034 C7.99997361,23.3488916 8.22383124,23.125034 8.49997361,23.125034 L9.50002639,23.125034 L17.0000528,23.125034 L18.0001056,23.125034 C18.2762479,23.125034 18.5001056,23.3488916 18.5001056,23.625034 L18.5001056,24.5000816 L18.4999868,27.250068 Z M39.5000132,34.1250884 L39.5000132,28.6251157 L39.5000132,27.250068 L39.5000132,24.5000816 L39.5000132,23.625034 C39.5000132,23.3488916 39.7238708,23.125034 40.0000132,23.125034 L41.000066,23.125034 L48.5000924,23.125034 L49.5001451,23.125034 C49.7762875,23.125034 50.0001451,23.3488916 50.0001451,23.625034 L50.0001451,24.5000816 L50.0001451,27.250068 L50.0001451,28.6251157 L50.0001451,34.1250884 L50.0001451,35.0001361 C50.0001451,35.2762784 49.7762875,35.5001361 49.5001451,35.5001361 L48.5000924,35.5001361 L41.000066,35.5001361 L40.0000132,35.5001361 C39.7238708,35.5001361 39.5000132,35.2762784 39.5000132,35.0001361 Z" id="Shape" stroke="#404040" stroke-width="2"></path>
+                    <polygon id="Shape" stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="49.4999875 4 43.500025 4 38.9999938 4 28.5 4 7.5000125 4 0 19 1.50005 19 28.5 19 55.49995 19 57 19"></polygon>
+                    <polygon id="Shape" points="8 36 14 36 8 30"></polygon>
+                    <polygon id="Shape" points="14.6000665 36 16 36 16 30 9 30"></polygon>
+                    <polygon id="Rectangle-path" points="9 26 16 26 16 29 9 29"></polygon>
+                    <polygon id="Shape" points="48 36 48 30 41 30 46.5999557 36"></polygon>
+                    <polygon id="Rectangle-path" points="41 26 48 26 48 29 41 29"></polygon>
+                </g>
+                <polyline id="Path-9" stroke="#3A3939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="77 37 77 47 92.8346253 47 460 47"></polyline>
+                <polyline id="Path-4" stroke="#404040" stroke-width="2" stroke-linecap="round" points="0 47 5 47 19.5156227 47 23 47 23 40"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

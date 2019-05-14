@@ -61,7 +61,7 @@ class FoodSelectorFormState extends State<FoodSelectorForm> {
       value: model.selectedFrequency,
       onChanged: _setSelectedFrequency,
       validator: (value) {
-        if (value == null || value.isEmpty) {
+        if (value == null) {
           return 'Please choose how often you eat that food';
         }
       },

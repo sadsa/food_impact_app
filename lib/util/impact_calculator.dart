@@ -26,18 +26,23 @@ class ImpactCalculator {
   }
 
   double getGhgPerServing() {
+    if (_selectedFood == null) return 0;
     return _selectedFood.ghg;
   }
 
   double getAverageServingsPerWeek() {
+    if (_selectedFood == null) return 0;
     return _selectedFood.avgServingsGlobal;
   }
 
   double getFrequencyValue() {
+    if (_selectedFood == null) return 0;
     return _selectedFrequency.value;
   }
 
   double getGhgPerYear() {
-    return getGhgPerServing() * getFrequencyValue() * figures.weeksInYear;
+    return getGhgPerServing() *
+        getFrequencyValue() *
+        figures.weeksInYear;
   }
 }

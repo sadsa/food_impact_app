@@ -6,12 +6,18 @@ class Food {
   double landUse; //": "1.158023151",
   double waterUse; //": "508.277153",
   String foodGroup; //": "Protein-rich foods",
-  List<String> sentences; //": "GHG.sentence.1, GHG.sentence.2, Water.sentence",
+  String sentences; //": "GHG.sentence.1, GHG.sentence.2, Water.sentence",
   double avgServingsGlobal; //": "0.369237436",
   double avgServingsUk; //": "0.390283225"
 
   Food.fromJson(this.key, Map data) {
     name = data['food'] != null ? data['food'] : '';
     servingSize = data['serving_size'] != null ? data['serving_size'] : '';
+    ghg = data['ghg'] != null ? double.parse(data['ghg']) : 0;
+    sentences = data['sentences'] != null ? data['sentences'] : '';
+  }
+
+  List<String> getSentenceKeys() {
+    return sentences.split(', ');
   }
 }

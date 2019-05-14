@@ -22,6 +22,8 @@ dependencies:
   firebase_database:
   scoped_model: ^1.0.1
   flutter_svg:
+  sprintf: "^4.0.2"
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
