@@ -1,31 +1,76 @@
 import 'package:flutter/widgets.dart';
+import 'package:food_impact_app/food_model.dart';
+import 'package:food_impact_app/util/impact_calculator.dart';
+import 'package:sprintf/sprintf.dart';
 
 class Sentence {
+  final String key;
   final String text;
   final String imageUrl;
-  const Sentence({this.text, this.imageUrl});
+  List<dynamic> tokenValues = [];
+  Sentence({this.key, this.text, this.imageUrl});
 }
 
-class SentenceWidgetBuilder {
-  static Widget create(Sentence sentence) {
-    return Text(sentence.text);
+class SentenceWidgetFactory {
+  static Widget create(Sentence sentence, FoodModel model) {
+    switch (sentence.key) {
+      case SentenceKeys.ghgSentence1:
+        double ghgPerYear = ImpactCalculator.getGhgPerYear(
+            model.selectedFood, model.selectedFrequency);
+        sentence.tokenValues.add(ghgPerYear);
+        return _buildSentence(sentence);
+        break;
+      case SentenceKeys.ghgSentence2:
+        double ghgPerYear = ImpactCalculator.getGhgPerYear(
+            model.selectedFood, model.selectedFrequency);
+        sentence.tokenValues.add(ghgPerYear);
+        return _buildSentence(sentence);
+        break;
+      default:
+        return Text('Could not construct Widget with key: $sentence.key');
+    }
+  }
+
+  static Widget _buildSentence(Sentence sentence) {
+    List<dynamic> calcValues = sentence.tokenValues;
+    String text = _replaceWithCalculatedValues(sentence.text, calcValues);
+    return Text(text);
+  }
+
+  static String _replaceWithCalculatedValues(
+      String sentence, List<dynamic> values) {
+    return sprintf(sentence, values);
   }
 }
 
-const Map<String, Sentence> Sentences = {
-  "GHG.sentence.1": const Sentence(
+class SentenceKeys {
+  static const String ghgSentence1 = "GHG_Sentence_1";
+  static const String ghgSentence2 = "GHG_Sentence_2";
+  static const String ghgSentence3 = "GHG_Sentence_3";
+  static const String landSentence = "Land_Sentence";
+  static const String waterSentence = "Water_Sentence";
+}
+
+Map<String, Sentence> Sentences = {
+  SentenceKeys.ghgSentence1: new Sentence(
+      key: SentenceKeys.ghgSentence1,
       text:
           "That's the equivalent of driving a regular petrol car %s miles (%skm).",
       imageUrl: ""),
-  "GHG.sentence.2": const Sentence(
+  SentenceKeys.ghgSentence2: new Sentence(
+      key: SentenceKeys.ghgSentence2,
       text: "the same as heating the average UK home for %s days.",
       imageUrl: ""),
-  "GHG.sentence.3": const Sentence(
+  SentenceKeys.ghgSentence3: new Sentence(
+      key: SentenceKeys.ghgSentence3,
       text: "like taking %s return flight from London to Malaga.",
       imageUrl: ""),
-  "Land.sentence": const Sentence(
-      text: "%sm² land, equal to the space of %s tennis courts.", imageUrl: ""),
-  "Water.sentence": const Sentence(
+  SentenceKeys.landSentence: new Sentence(
+      key: SentenceKeys.landSentence,
+      text: "%sm² land, equal to the space of %s tennis courts.",
+      imageUrl: ""),
+  SentenceKeys.waterSentence: new Sentence(
+      key: SentenceKeys.waterSentence,
       text: "%s litres of water, equal to %s showers lasting eight minutes.",
       imageUrl: ""),
 };

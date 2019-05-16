@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_impact_app/results/results_sentences.dart';
+import 'package:food_impact_app/results/results_Sentences.dart';
 import 'package:food_impact_app/results/results_summary.dart';
 
 class ResultsPage extends StatefulWidget {

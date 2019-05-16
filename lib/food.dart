@@ -1,3 +1,5 @@
+import 'package:food_impact_app/sentences.dart';
+
 class Food {
   final String key;
   String name;
@@ -6,7 +8,7 @@ class Food {
   double landUse; //": "1.158023151",
   double waterUse; //": "508.277153",
   String foodGroup; //": "Protein-rich foods",
-  String sentences; //": "GHG.sentence.1, GHG.sentence.2, Water.sentence",
+  String sentences; //": "GHG_sentence_1, GHG_sentence_2, Water_sentence",
   double avgServingsGlobal; //": "0.369237436",
   double avgServingsUk; //": "0.390283225"
 
@@ -17,7 +19,10 @@ class Food {
     sentences = data['sentences'] != null ? data['sentences'] : '';
   }
 
-  List<String> getSentenceKeys() {
-    return sentences.split(', ');
+  List<Sentence> getSentences() {
+    List<String> keys = sentences.split(', ');
+    return keys
+        .map((k) => Sentences.containsKey(k) ? Sentences[k] : null)
+        .toList();
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_impact_app/food.dart';
 import 'package:food_impact_app/food_model.dart';
+import 'package:food_impact_app/frequency.dart';
 import 'package:food_impact_app/util/impact_calculator.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -21,13 +22,13 @@ class _ResultsSummaryState extends State<ResultsSummary> {
   Widget _buildBody() {
     return ScopedModelDescendant<FoodModel>(builder: (context, child, model) {
       var food = model.selectedFood;
-      var calc = new ImpactCalculator(model);
+      var frequency = model.selectedFrequency;
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _summaryImage(),
           _servingSize(food),
-          _impactSentence(food, calc)
+          _impactSentence(food, frequency)
         ],
       );
     });
@@ -42,13 +43,14 @@ class _ResultsSummaryState extends State<ResultsSummary> {
   }
 
   Widget _servingSize(Food food) {
+    if (food == null) return Text('-');
     var servingSize = food.servingSize.toString();
     return Text('$servingSize per serving');
   }
 
-  Widget _impactSentence(Food food, ImpactCalculator calc) {
-    var ghgPerYear = calc.getGhgPerYear();
-    var ghgPerYearRounded = ghgPerYear.floor();
+  Widget _impactSentence(Food food, Frequency frequency) {
+    if (food == null) return Text('Please select a Food');
+    var ghgPerYear = ImpactCalculator.getGhgPerYearRounded(food, frequency);
     var foodName = food.name.toString();
     return RichText(
       text: TextSpan(
@@ -57,7 +59,7 @@ class _ResultsSummaryState extends State<ResultsSummary> {
         style: DefaultTextStyle.of(context).style,
         children: <TextSpan>[
           TextSpan(
-              text: ' $ghgPerYearRounded kg',
+              text: ' $ghgPerYear kg',
               style: TextStyle(fontWeight: FontWeight.bold)),
           TextSpan(text: ' to your annual greenhouse gas emissions.'),
         ],

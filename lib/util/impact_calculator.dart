@@ -1,48 +1,39 @@
 import 'package:food_impact_app/food.dart';
-import 'package:food_impact_app/food_model.dart';
 import 'package:food_impact_app/frequency.dart';
 
-class CalculationFigures {
-  double kmsPerMile = 1.60934;
-  double kgPerMile = .392;
-  int kgPerPassenger = 320;
-  int kgPerPassengerWS = 470;
-  int metersSquaredPerCourt = 261;
-  int litersPerShower = 65;
-  int annualHomeHeatingEmmision = 2300;
-  int weeksInYear = 52;
-  int daysInYear = 365;
-}
-
 class ImpactCalculator {
-  Food _selectedFood;
-  Frequency _selectedFrequency;
+  static double kmsPerMile = 1.60934;
+  static double kgPerMile = .392;
+  static int kgPerPassenger = 320;
+  static int kgPerPassengerWS = 470;
+  static int metersSquaredPerCourt = 261;
+  static int litersPerShower = 65;
+  static int annualHomeHeatingEmmision = 2300;
+  static int weeksInYear = 52;
+  static int daysInYear = 365;
 
-  var figures = new CalculationFigures();
-
-  ImpactCalculator(FoodModel model) {
-    _selectedFood = model.selectedFood;
-    _selectedFrequency = model.selectedFrequency;
+  static double getGhgPerServing(Food food) {
+    if (food == null) return 0;
+    return food.ghg;
   }
 
-  double getGhgPerServing() {
-    if (_selectedFood == null) return 0;
-    return _selectedFood.ghg;
+  static double getAverageServingsPerWeek(Food food) {
+    if (food == null) return 0;
+    return food.avgServingsGlobal;
   }
 
-  double getAverageServingsPerWeek() {
-    if (_selectedFood == null) return 0;
-    return _selectedFood.avgServingsGlobal;
+  static double getFrequencyValue(Food food, Frequency frequency) {
+    if (food == null || frequency == null) return 0;
+    return frequency.value;
   }
 
-  double getFrequencyValue() {
-    if (_selectedFood == null) return 0;
-    return _selectedFrequency.value;
+  static double getGhgPerYear(Food food, Frequency frequency) {
+    if (food == null || frequency == null) return 0;
+    return getGhgPerServing(food) *
+        getFrequencyValue(food, frequency) *
+        weeksInYear;
   }
 
-  double getGhgPerYear() {
-    return getGhgPerServing() *
-        getFrequencyValue() *
-        figures.weeksInYear;
-  }
+  static int getGhgPerYearRounded(Food food, Frequency frequency) =>
+      getGhgPerYear(food, frequency).floor();
 }

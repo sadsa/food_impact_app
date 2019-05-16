@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:food_impact_app/food.dart';
 import 'package:food_impact_app/food_model.dart';
+import 'package:food_impact_app/frequency.dart';
 import 'package:food_impact_app/sentences.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -27,11 +28,12 @@ class _ResultsSentencesState extends State<ResultsSentences> {
 
   List<Widget> _buildSentences(FoodModel model) {
     Food food = model.selectedFood;
-    List<String> sentenceKeys = food.getSentenceKeys();
+    Frequency frequency = model.selectedFrequency;
     List<Widget> widgets = <Widget>[];
-    sentenceKeys.forEach((key) {
-      Sentence sentence = Sentences[key];
-      widgets.add(SentenceWidgetBuilder.create(sentence));
+    if (food == null || frequency == null) return widgets;
+    List<Sentence> sentences = food.getSentences();
+    sentences.forEach((sentence) {
+      widgets.add(SentenceWidgetFactory.create(sentence, model));
     });
     return widgets;
   }

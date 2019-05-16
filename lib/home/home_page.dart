@@ -39,7 +39,8 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           FoodSelectorForm(_onSubmit),
-          _submitted ? ResultsPage() : Container()
+          // _submitted ? ResultsPage() : Container()
+          ResultsPage()
         ],
       ),
     );
