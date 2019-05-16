@@ -1,6 +1,10 @@
-# food_impact_app
+# Climate Change Food Calculator
 
-A new Flutter project.
+Avoiding meat and dairy products is one of the biggest ways to reduce your environmental impact, according to recent scientific studies.
+
+But what is the difference between beef and chicken? Does a bowl of rice produce more climate warming greenhouse gases than a plate of chips? Is wine more environmentally friendly than beer?
+
+To find out the climate impact of what you eat and drink, choose from one of the 34 items in our calculator and pick how often you have it.
 
 ## Getting Started
 
