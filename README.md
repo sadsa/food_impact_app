@@ -6,9 +6,9 @@ But what is the difference between beef and chicken? Does a bowl of rice produce
 
 To find out the climate impact of what you eat and drink, choose from one of the 34 items in our calculator and pick how often you have it.
 
-## Getting Started
+*All figures for each food in the calculator are global averages. See the [Calculations](calculations.md) section for more.*
 
-This project is a starting point for a Flutter application.
+## Getting Started
 
 A few resources to get you started if this is your first Flutter project:
 
