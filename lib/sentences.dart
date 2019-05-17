@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:food_impact_app/food.dart';
 import 'package:food_impact_app/food_model.dart';
+import 'package:food_impact_app/frequency.dart';
 import 'package:food_impact_app/util/impact_calculator.dart';
 import 'package:sprintf/sprintf.dart';
 
@@ -12,16 +14,19 @@ class Sentence {
 }
 
 class SentenceWidgetFactory {
+  static ImpactCalculator _calc = new ImpactCalculator();
+
   static Widget create(Sentence sentence, FoodModel model) {
+    Food food = model.selectedFood;
+    Frequency frequency = model.selectedFrequency;
     switch (sentence.key) {
       case SentenceKeys.ghgSentence1:
-        double ghgPerYear = ImpactCalculator.getGhgPerYear(
-            model.selectedFood, model.selectedFrequency);
-        sentence.tokenValues.add(ghgPerYear);
+        var values = ghgSentenceValues(food, frequency);
+        sentence.tokenValues = values;
         return _buildSentence(sentence);
         break;
       case SentenceKeys.ghgSentence2:
-        double ghgPerYear = ImpactCalculator.getGhgPerYear(
+        double ghgPerYear = _calc.getGhgPerYear(
             model.selectedFood, model.selectedFrequency);
         sentence.tokenValues.add(ghgPerYear);
         return _buildSentence(sentence);
@@ -29,6 +34,22 @@ class SentenceWidgetFactory {
       default:
         return Text('Could not construct Widget with key: $sentence.key');
     }
+  }
+
+  static List<double> ghgSentenceValues(Food food, Frequency frequency) {
+    double numberOfMiles = _calc.getNumberOfMiles(
+        food, frequency);
+    double numberOfKms = _calc.getNumberOfKm(
+        numberOfMiles);            
+    return [numberOfMiles, numberOfKms];
+  }
+
+  static List<double> ghgSentence2Values(Food food, Frequency frequency) {
+    double numberOfMiles = _calc.getNumberOfMiles(
+        food, frequency);
+    double numberOfKms = _calc.getNumberOfKm(
+        numberOfMiles);            
+    return [numberOfMiles, numberOfKms];
   }
 
   static Widget _buildSentence(Sentence sentence) {

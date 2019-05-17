@@ -50,7 +50,8 @@ class _ResultsSummaryState extends State<ResultsSummary> {
 
   Widget _impactSentence(Food food, Frequency frequency) {
     if (food == null) return Text('Please select a Food');
-    var ghgPerYear = ImpactCalculator.getGhgPerYearRounded(food, frequency);
+    ImpactCalculator calc = new ImpactCalculator();
+    var ghgPerYear = calc.getGhgPerYearRounded(food, frequency);
     var foodName = food.name.toString();
     return RichText(
       text: TextSpan(

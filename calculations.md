@@ -2,6 +2,38 @@
 
 Here you can find all the figures calculations used to construct data used throughout the app.
 
+## Sentences
+
+### GHG Sentence 1
+
+![](assets/GHG.sentence.1.svg) 
+
+That's the equivalent of driving a regular petrol car [ **getNumberOfMiles** ] miles ([ **getNumberOfKm** ]km).
+
+### GHG Sentence 2
+
+![](assets/GHG.sentence.2.svg)
+
+the same as heating the average UK home for [ **getNumberOfDays** ] days.
+
+### GHG Sentence 3
+
+![](assets/GHG.sentence.3.svg)
+
+like taking [ **getNumberOfFlights** ] return flight from London to Malaga.
+
+### Land Sentence
+
+![](assets/Land.sentence.svg)
+
+[ **getLandUse** ]m² land, equal to the space of [ **getNumberOfCourts** ] tennis courts.
+
+### Water Sentence
+
+![](assets/Water.sentence.svg)
+
+[ **getWaterUse** ] litres of water, equal to [ **getNumberOfShowers** ] showers lasting eight minutes.
+
 ## Constants
 
 - kmsPerMile = `1.60934`
@@ -200,35 +232,3 @@ Here you can find all the figures calculations used to construct data used throu
     getNumberOfShowers(t, n) {
       return getWaterUse(t, n) / p;
     }
-
-## Sentences
-
-### GHG Sentence 1
-
-![](assets/GHG.sentence.1.svg) 
-
-That's the equivalent of driving a regular petrol car [ **getNumberOfMiles** ] miles ([ **getNumberOfKm** ]km).
-
-### GHG Sentence 2
-
-![](assets/GHG.sentence.2.svg)
-
-the same as heating the average UK home for [ **getNumberOfDays** ] days.
-
-### GHG Sentence 3
-
-![](assets/GHG.sentence.3.svg)
-
-like taking [ **getNumberOfFlights** ] return flight from London to Malaga.
-
-### Land Sentence
-
-![](assets/Land.sentence.svg)
-
-[ **getLandUse** ]m² land, equal to the space of [ **getNumberOfCourts** ] tennis courts.
-
-### Water Sentence
-
-![](assets/Water.sentence.svg)
-
-[ **getWaterUse** ] litres of water, equal to [ **getNumberOfShowers** ] showers lasting eight minutes.
