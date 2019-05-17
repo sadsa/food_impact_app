@@ -21,12 +21,14 @@ class _ResultsSummaryState extends State<ResultsSummary> {
 
   Widget _buildBody() {
     return ScopedModelDescendant<FoodModel>(builder: (context, child, model) {
-      var food = model.selectedFood;
-      var frequency = model.selectedFrequency;
+      var food = model.foodChoice;
+      var frequency = model.frequencyChoice;
+      if (food == null || frequency == null)
+        return Text('Please select a Food');
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _summaryImage(),
+          _summaryImage(food),
           _servingSize(food),
           _impactSentence(food, frequency)
         ],
@@ -34,8 +36,10 @@ class _ResultsSummaryState extends State<ResultsSummary> {
     });
   }
 
-  Widget _summaryImage() {
-    final String assetName = 'assets/food_20.svg';
+  Widget _summaryImage(Food food) {
+    if (food == null) return Text('-');
+    final String assetName =
+        'assets/food_' + (!food.key.isNaN ? '${food.key + 1}.svg' : '20.svg');
     final Widget svg = new SvgPicture.asset(assetName);
     return Container(
       child: svg,
@@ -49,7 +53,6 @@ class _ResultsSummaryState extends State<ResultsSummary> {
   }
 
   Widget _impactSentence(Food food, Frequency frequency) {
-    if (food == null) return Text('Please select a Food');
     ImpactCalculator calc = new ImpactCalculator();
     var ghgPerYear = calc.getGhgPerYearRounded(food, frequency);
     var foodName = food.name.toString();

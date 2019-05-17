@@ -27,8 +27,8 @@ class _ResultsSentencesState extends State<ResultsSentences> {
   }
 
   List<Widget> _buildSentences(FoodModel model) {
-    Food food = model.selectedFood;
-    Frequency frequency = model.selectedFrequency;
+    Food food = model.foodChoice;
+    Frequency frequency = model.frequencyChoice;
     List<Widget> widgets = <Widget>[];
     if (food == null || frequency == null) return widgets;
     List<Sentence> sentences = food.getSentences();

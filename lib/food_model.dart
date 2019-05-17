@@ -1,6 +1,7 @@
-import 'package:food_impact_app/frequency.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'food.dart';
+import 'frequency.dart';
+import 'food_data_service.dart';
 
 class FoodModel extends Model {
   List<Food> _foods = new List<Food>();
@@ -11,8 +12,8 @@ class FoodModel extends Model {
     new Frequency("Twice a day or more", 14),
     new Frequency("Never", 0),
   ];
-  Food _selectedFood;
-  Frequency _selectedFrequency;
+  Food _foodChoice;
+  Frequency _frequencyChoice;
 
   get foods => _foods;
 
@@ -21,17 +22,22 @@ class FoodModel extends Model {
     notifyListeners();
   }
 
-  Food get selectedFood => _selectedFood;
+  Food get foodChoice => _foodChoice;
 
-  set selectedFood(Food value) {
-    _selectedFood = value;
+  set foodChoice(Food value) {
+    _foodChoice = value;
     notifyListeners();
   }
 
-  Frequency get selectedFrequency => _selectedFrequency;
+  Frequency get frequencyChoice => _frequencyChoice;
 
-  set selectedFrequency(Frequency value) {
-    _selectedFrequency = value;
+  set frequencyChoice(Frequency value) {
+    _frequencyChoice = value;
     notifyListeners();
+  }
+
+  Future loadData() async {
+    var data = await FoodDataService.getFoodData();
+    foods = data;
   }
 }

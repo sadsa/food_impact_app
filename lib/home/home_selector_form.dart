@@ -5,23 +5,23 @@ import 'package:food_impact_app/frequency.dart';
 import 'package:food_impact_app/util/dropdown_factory.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class FoodSelectorForm extends StatefulWidget {
+class HomeSelectorForm extends StatefulWidget {
   final Function _submitCallback;
 
-  FoodSelectorForm(this._submitCallback);
+  HomeSelectorForm(this._submitCallback);
 
   @override
-  FoodSelectorFormState createState() {
-    return FoodSelectorFormState(_submitCallback);
+  HomeSelectorFormState createState() {
+    return HomeSelectorFormState(_submitCallback);
   }
 }
 
-class FoodSelectorFormState extends State<FoodSelectorForm> {
+class HomeSelectorFormState extends State<HomeSelectorForm> {
   final _formKey = GlobalKey<FormState>();
   final _submitCallback;
   final _autovalidate = false;
 
-  FoodSelectorFormState(this._submitCallback);
+  HomeSelectorFormState(this._submitCallback);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class FoodSelectorFormState extends State<FoodSelectorForm> {
     return DropdownButtonFormField(
       decoration: InputDecoration(labelText: 'Which food would you like?'),
       items: DropdownFactory.buildFoodItems(model.foods),
-      value: model.selectedFood,
+      value: model.foodChoice,
       onChanged: _setSelectedFood,
       validator: (Food value) {
         if (value == null) {
@@ -58,7 +58,7 @@ class FoodSelectorFormState extends State<FoodSelectorForm> {
     return DropdownButtonFormField(
       decoration: InputDecoration(labelText: 'How often do you have it?'),
       items: DropdownFactory.buildFrequencyItems(model.frequencies),
-      value: model.selectedFrequency,
+      value: model.frequencyChoice,
       onChanged: _setSelectedFrequency,
       validator: (value) {
         if (value == null) {
@@ -72,12 +72,6 @@ class FoodSelectorFormState extends State<FoodSelectorForm> {
     return RaisedButton(
       onPressed: () {
         if (_formKey.currentState.validate()) {
-          // If the form is valid, display a snackbar. In the real world, you'd
-          // often want to call a server or save the information in a database
-          Scaffold.of(context).showSnackBar(SnackBar(
-            content: Text('Loading...'),
-            duration: Duration(milliseconds: 500),
-          ));
           _submitCallback();
         }
       },
@@ -86,10 +80,10 @@ class FoodSelectorFormState extends State<FoodSelectorForm> {
   }
 
   void _setSelectedFood(Food value) {
-    ScopedModel.of<FoodModel>(context).selectedFood = value;
+    ScopedModel.of<FoodModel>(context).foodChoice = value;
   }
 
   void _setSelectedFrequency(Frequency value) {
-    ScopedModel.of<FoodModel>(context).selectedFrequency = value;
+    ScopedModel.of<FoodModel>(context).frequencyChoice = value;
   }
 }
