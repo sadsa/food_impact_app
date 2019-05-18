@@ -1,7 +1,7 @@
+import 'package:food_impact_app/data_service.dart';
+import 'package:food_impact_app/entities/food.dart';
+import 'package:food_impact_app/entities/frequency.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'food.dart';
-import 'frequency.dart';
-import 'food_data_service.dart';
 
 class FoodModel extends Model {
   List<Food> _foods = new List<Food>();
@@ -37,7 +37,7 @@ class FoodModel extends Model {
   }
 
   Future loadData() async {
-    var data = await FoodDataService.getFoodData();
+    var data = await DataService.getFoodData();
     foods = data;
   }
 }

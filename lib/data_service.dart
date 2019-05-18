@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:food_impact_app/food.dart';
+import 'entities/food.dart';
 
-class FoodDataService {
+class DataService {
   static Future<List<Food>> getFoodData() async {
     Completer<List<Food>> completer = new Completer<List<Food>>();
 

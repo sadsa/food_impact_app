@@ -1,4 +1,5 @@
-import 'package:food_impact_app/sentences.dart';
+import 'package:food_impact_app/config/sentences.dart';
+import 'package:food_impact_app/entities/sentence.dart';
 
 class Food {
   final int key;
@@ -16,8 +17,8 @@ class Food {
     name = data['food'] != null ? data['food'] : '';
     servingSize = data['serving_size'] != null ? data['serving_size'] : '';
     ghg = data['ghg'] != null ? double.parse(data['ghg']) : 0;
-    landUse = data['landUse'] != null ? double.parse(data['landUse']) : 0;
-    waterUse = data['waterUse'] != null ? double.parse(data['waterUse']) : 0;
+    landUse = data['land_use'] != null ? double.parse(data['land_use']) : 0;
+    waterUse = data['water_use'] != null ? double.parse(data['water_use']) : 0;
     foodGroup = data['food_group'] != null ? data['food_group'] : '';
     sentences = data['sentences'] != null ? data['sentences'] : '';
     avgServingsGlobal = data['average_servings_global'] != null

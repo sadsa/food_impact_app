@@ -23,6 +23,8 @@ dependencies:
   scoped_model: ^1.0.1
   flutter_svg:
   sprintf: "^4.0.2"
+  intl: ^0.15.8
+
 
 
   # The following adds the Cupertino Icons font to your application.

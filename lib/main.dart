@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_impact_app/home/home_page.dart';
+import 'package:food_impact_app/models/food_model.dart';
 import 'package:food_impact_app/results/resuls_page.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'food_model.dart';
 
 void main() {
   var model = FoodModel();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_impact_app/food.dart';
-import 'package:food_impact_app/food_model.dart';
-import 'package:food_impact_app/frequency.dart';
+import 'package:food_impact_app/entities/food.dart';
+import 'package:food_impact_app/entities/frequency.dart';
+import 'package:food_impact_app/models/food_model.dart';
 import 'package:food_impact_app/util/dropdown_factory.dart';
 import 'package:scoped_model/scoped_model.dart';
 

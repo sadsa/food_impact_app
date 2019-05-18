@@ -1,9 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food_impact_app/food.dart';
-import 'package:food_impact_app/food_model.dart';
-import 'package:food_impact_app/frequency.dart';
+import 'package:food_impact_app/entities/food.dart';
+import 'package:food_impact_app/entities/frequency.dart';
+import 'package:food_impact_app/models/food_model.dart';
 import 'package:food_impact_app/util/impact_calculator.dart';
+import 'package:food_impact_app/util/token_formatter.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ResultsSummary extends StatefulWidget {
@@ -54,7 +55,8 @@ class _ResultsSummaryState extends State<ResultsSummary> {
 
   Widget _impactSentence(Food food, Frequency frequency) {
     ImpactCalculator calc = new ImpactCalculator();
-    var ghgPerYear = calc.getGhgPerYearRounded(food, frequency);
+    double ghgPerYear = calc.getGhgPerYear(food, frequency);
+    String ghgPerYearFormatted = TokenFormatter.format(ghgPerYear);
     var foodName = food.name.toString();
     return RichText(
       text: TextSpan(
@@ -63,7 +65,7 @@ class _ResultsSummaryState extends State<ResultsSummary> {
         style: DefaultTextStyle.of(context).style,
         children: <TextSpan>[
           TextSpan(
-              text: ' $ghgPerYear kg',
+              text: ' ${ghgPerYearFormatted}kg',
               style: TextStyle(fontWeight: FontWeight.bold)),
           TextSpan(text: ' to your annual greenhouse gas emissions.'),
         ],

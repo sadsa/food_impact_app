@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_impact_app/food.dart';
-import 'package:food_impact_app/frequency.dart';
+import 'package:food_impact_app/entities/food.dart';
+import 'package:food_impact_app/entities/frequency.dart';
 
 class DropdownFactory {
   static List<DropdownMenuItem<Food>> buildFoodItems(List<Food> items) {

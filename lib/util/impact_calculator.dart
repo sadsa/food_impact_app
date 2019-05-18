@@ -1,5 +1,6 @@
-import 'package:food_impact_app/food.dart';
-import 'package:food_impact_app/frequency.dart';
+import 'package:food_impact_app/config/language.dart';
+import 'package:food_impact_app/entities/food.dart';
+import 'package:food_impact_app/entities/frequency.dart';
 
 class ImpactCalculator {
   double _kmsPerMile = 1.60934;
@@ -12,33 +13,35 @@ class ImpactCalculator {
   int _weeksInYear = 52;
   int _daysInYear = 365;
 
-  double getNumberOfMiles(Food food, Frequency frequency) =>
-      getGhgPerYear(food, frequency) / _kgPerMile;
-
   double getGhgPerServing(Food food) {
-    if (food == null) return 0;
     return food.ghg;
   }
 
   double getAverageServingsPerWeek(Food food) {
-    if (food == null) return 0;
+    return food.avgServingsUk;
+  }
+
+  double getAverageServingsPerWeekGlobal(Food food) {
     return food.avgServingsGlobal;
   }
 
   double getFrequencyValue(Food food, Frequency frequency) {
-    if (food == null || frequency == null) return 0;
+    if (frequency.name == "Never") {
+      return LANGUAGE == "English"
+          ? getAverageServingsPerWeek(food)
+          : getAverageServingsPerWeekGlobal(food);
+    }
     return frequency.value;
-  }
+  }  
 
   double getGhgPerYear(Food food, Frequency frequency) {
-    if (food == null || frequency == null) return 0;
     return getGhgPerServing(food) *
         getFrequencyValue(food, frequency) *
         _weeksInYear;
   }
 
-  int getGhgPerYearRounded(Food food, Frequency frequency) =>
-      getGhgPerYear(food, frequency).floor();
+  double getNumberOfMiles(Food food, Frequency frequency) =>
+    getGhgPerYear(food, frequency) / _kgPerMile;
 
   double getNumberOfKm(double numberOfMiles) => numberOfMiles * _kmsPerMile;
 
@@ -70,6 +73,5 @@ class ImpactCalculator {
         _weeksInYear);
   }
 
-  double getNumberOfShowers(double waterUse) =>
-      waterUse / _litresPerShower;
+  double getNumberOfShowers(double waterUse) => waterUse / _litresPerShower;
 }
