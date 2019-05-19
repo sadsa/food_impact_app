@@ -1,7 +1,7 @@
 # Climate Change Food Calculator
 
 > CREDIT: 
-> This is a port of the original web-based app designed by **Prina Shah** and developed by **Felix Stephenson** and **Becky Rush** into Flutter.
+> This is a port of the original web-based app designed by **Prina Shah** and developed by **Felix Stephenson** and **Becky Rush** into Flutter. - [Food Impact Calculator](https://www.bbc.com/news/science-environment-46459714)
 
 Avoiding meat and dairy products is one of the biggest ways to reduce your environmental impact, according to recent scientific studies.
 
