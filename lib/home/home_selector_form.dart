@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_impact_app/entities/food.dart';
 import 'package:food_impact_app/entities/frequency.dart';
+import 'package:food_impact_app/main.dart';
 import 'package:food_impact_app/models/food_model.dart';
 import 'package:food_impact_app/util/dropdown_factory.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -29,13 +30,15 @@ class HomeSelectorFormState extends State<HomeSelectorForm> {
       key: _formKey,
       autovalidate: _autovalidate,
       child: ScopedModelDescendant<FoodModel>(
-        builder: (context, child, model) => Column(
+        builder: (context, child, model) => Container(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
               children: <Widget>[
                 _foodField(model),
                 _frequencyField(model),
                 _submitButton()
               ],
-            ),
+            )),
       ),
     );
   }
@@ -69,14 +72,21 @@ class HomeSelectorFormState extends State<HomeSelectorForm> {
   }
 
   Widget _submitButton() {
-    return RaisedButton(
-      onPressed: () {
-        if (_formKey.currentState.validate()) {
-          _submitCallback();
-        }
-      },
-      child: Text('Find out'),
-    );
+    return Container(
+        margin: EdgeInsets.symmetric(vertical: 20),
+        child: RaisedButton(
+          onPressed: () {
+            if (_formKey.currentState.validate()) {
+              _submitCallback();
+            }
+          },
+          child: Text(
+            'Find out',
+            style: TextStyle(fontWeight: FontWeight.w700),
+          ),
+          color: AppColorPalette.teal,
+          textColor: Colors.white,
+        ));
   }
 
   void _setSelectedFood(Food value) {

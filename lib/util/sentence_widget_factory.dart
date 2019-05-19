@@ -27,6 +27,7 @@ class SentenceWidgetFactory {
   static Widget _buildImage(String imageUrl) {
     final Widget svg = new SvgPicture.asset(imageUrl);
     return Container(
+      padding: EdgeInsets.only(bottom: 10),
       child: svg,
     );
   }
@@ -34,6 +35,12 @@ class SentenceWidgetFactory {
   static _buildSentenceText(String text, List<double> tokenValues) {
     List<String> tokens = TokenFormatter.formatList(tokenValues);
     String formattedText = TokenFormatter.replace(text, tokens);
-    return Text(formattedText);
+    return Container(
+      child: Text(
+        formattedText,
+        textAlign: TextAlign.center,
+      ),
+      padding: EdgeInsets.only(bottom: 10),
+    );
   }
 }

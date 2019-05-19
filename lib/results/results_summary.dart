@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_impact_app/entities/food.dart';
 import 'package:food_impact_app/entities/frequency.dart';
+import 'package:food_impact_app/main.dart';
 import 'package:food_impact_app/models/food_model.dart';
 import 'package:food_impact_app/util/impact_calculator.dart';
 import 'package:food_impact_app/util/token_formatter.dart';
@@ -15,9 +16,11 @@ class ResultsSummary extends StatefulWidget {
 class _ResultsSummaryState extends State<ResultsSummary> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: _buildBody(),
-    );
+    return Container(
+        padding: EdgeInsets.symmetric(vertical: 40),
+        child: Center(
+          child: _buildBody(),
+        ));
   }
 
   Widget _buildBody() {
@@ -41,8 +44,13 @@ class _ResultsSummaryState extends State<ResultsSummary> {
     if (food == null) return Text('-');
     final String assetName =
         'assets/food_' + (!food.key.isNaN ? '${food.key + 1}.svg' : '20.svg');
-    final Widget svg = new SvgPicture.asset(assetName);
+    final Widget svg = new SvgPicture.asset(
+      assetName,
+      height: 100,
+      width: 100,
+    );
     return Container(
+      margin: EdgeInsets.symmetric(vertical: 20),
       child: svg,
     );
   }
@@ -50,7 +58,10 @@ class _ResultsSummaryState extends State<ResultsSummary> {
   Widget _servingSize(Food food) {
     if (food == null) return Text('-');
     var servingSize = food.servingSize.toString();
-    return Text('$servingSize per serving');
+    return Container(
+      margin: EdgeInsets.only(bottom: 20),
+      child: Text('$servingSize per serving'),
+    );
   }
 
   Widget _impactSentence(Food food, Frequency frequency) {
@@ -59,14 +70,18 @@ class _ResultsSummaryState extends State<ResultsSummary> {
     String ghgPerYearFormatted = TokenFormatter.format(ghgPerYear);
     var foodName = food.name.toString();
     return RichText(
+      textAlign: TextAlign.center,
       text: TextSpan(
         text:
             'Over an entire year your consumption of $foodName is contributing',
-        style: DefaultTextStyle.of(context).style,
+        style: TextStyle(
+            fontWeight: FontWeight.w700, color: AppColorPalette.textGrey, fontSize: 16),
         children: <TextSpan>[
           TextSpan(
               text: ' ${ghgPerYearFormatted}kg',
-              style: TextStyle(fontWeight: FontWeight.bold)),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: AppColorPalette.textDanger)),
           TextSpan(text: ' to your annual greenhouse gas emissions.'),
         ],
       ),
